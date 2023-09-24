@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liên hệ</title>
   <link rel="stylesheet" href="../static/css/navbar.css">
+  <link rel="stylesheet" href="../static/css/contact.css">
   <link rel="stylesheet" href="../static/css/footer.css">
   <!-- Navbar Additional Links Start -->
   <!-- Bootstrap -->
@@ -91,6 +92,64 @@
     </script>
   </div>
   <!-- Navbar End -->
+
+
+  <!-- Contact Starts -->
+  <div class="contact-us-body">
+    <div class="content-left flex-item">
+      <h2 class="scripts2">Liên lạc với chúng tôi</h2>
+      <div class = "diachicontact">
+        <img src="../static/images/address.svg" alt="Địa chỉ" class="anh anh1">
+         <h2> Địa chỉ của chúng tôi:</h2>
+         <h2> Nhà 28, ngách 1/6, ngõ 140 Nguyễn Xiển, Thanh Xuân</h2>
+      </div>
+      <div class = "diachimail">
+        <img src="../static/images/email.svg" alt="Email" class="anh anh1">
+         <h2> Địa chỉ gmail của chúng tôi:</h2>
+         <h2> ecosmartvietnam@gmail.com </h2>
+      </div>
+      <div class = "sodienthoai">
+        <img src="../static/images/phone.svg" alt="Số điện thoại" class="anh anh1">
+        <h2> Số điện thoại của chúng tôi:</h2>
+        <h2> 09090909090 </h2>
+      </div>
+    </div>
+
+    <div class="content-right flex-item">
+      <form class="contact-box" id="contact-form">
+        <h2 class="word">Mục gửi thư</h2>
+
+        <input
+          class="contact-item"
+          type="text"
+          name="from_name"
+          placeholder="Họ Tên*"
+          required
+        />
+        <br />
+
+        <input
+          class="contact-item"
+          type="email"
+          name="email_id"
+          placeholder="Email*"
+          required
+        />
+        <br />
+
+        <textarea
+          class="contact-item"
+          name="message"
+          id="messagebox"
+          placeholder="Lời nhắn*"
+          required
+        ></textarea>
+        <br />
+        <input type="submit" class="button" value="Gửi" id="send-btn" />
+      </form>
+    </div>
+  </div>
+  <!-- Contact Ends -->
 
 
   <!-- Footer Starts -->
