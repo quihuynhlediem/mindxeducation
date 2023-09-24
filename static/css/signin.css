@@ -1,0 +1,46 @@
+.register_body {
+  font-size: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90vh;
+  /* background-image: url("../images/signin_background.jpeg"); */
+}
+
+#registerForm {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 500px;
+  padding: 1rem;
+  border: black solid 1px;
+  border-radius: 1rem;
+}
+
+#registerForm h1 {
+  color: rgba(209, 55, 50, 1);
+  font-size: 3em;
+  text-align: center;
+}
+
+#registerForm input,
+#registerForm button {
+  font-size: 1.75em;
+  padding: .5em;
+  margin: .5em 0;
+  text-align: center;
+  border-radius: .5rem;
+}
+
+#registerForm button {
+  background-color: rgba(209, 55, 50, 1);
+  color: white;
+  font-weight: bold;
+}
+
+#registerForm button:hover {
+  background-color: white;
+  color: rgba(209, 55, 50, 1);
+  border:rgba(209, 55, 50, 1) solid 2px;
+  font-weight: bolder;
+}
