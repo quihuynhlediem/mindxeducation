@@ -1,0 +1,50 @@
+.cert_container {
+  font-family: 'Inter';
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cert_title {
+  margin-top: 3rem;
+  font-size: 35px;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: rgba(209, 55, 50, 1);
+}
+
+.cert_item{
+  box-sizing: border-box;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.cert_item_title {
+  margin-top: 1rem;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 650;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.cert_item img {
+  width: calc(40% - 35px);
+}
+
+.cert_item .cert_content {
+  width: calc(60% - 35px);
+  margin: auto 0;
+}
+
+.cert_item .cert_content .cert_description {
+  font-size: 18px;
+
+}
