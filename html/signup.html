@@ -21,6 +21,39 @@
 </head>
 
 <body>
+  <!-- Messenger Plugin chat Code Starts -->
+  <div id="fb-root"></div>
+
+  <!-- Your Plugin chat code -->
+  <div id="fb-customer-chat" class="fb-customerchat">
+  </div>
+
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "109950078861537");
+    chatbox.setAttribute("attribution", "biz_inbox");
+  </script>
+
+  <!-- Your SDK code -->
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: 'v18.0'
+      });
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <!-- Messenger Plugin chat Code Ends -->
+
+  
   <!-- Navbar Start -->
   <div class="navbar-body">
     <!-- Navbar expands from large and collapses from size smaller than large -->
@@ -97,21 +130,21 @@
   <!-- Sign Up Starts -->
 
   <div class="register_body">
-      <div id="registerForm">
+    <div id="registerForm">
       <h1>Sign Up</h1>
       <input type="text" placeholder="Enter your username" id="inputUserName" />
       <input type="text" placeholder="Enter your password" id="inputPassword" />
       <div class="remember">
         <input type="checkbox" id="remember" />
-        <label for="remember">Remember me</label> 
+        <label for="remember">Remember me</label>
         <!-- Luu username + pass vao localStorage -->
       </div>
       <button id="submit">Submit</button>
       <div class="change_tab">
         <p>Already had an account? <a href="signin.html">Sign In</a></p>
       </div>
-      </div>
     </div>
+  </div>
   <!-- Sign Up Ends -->
 
 

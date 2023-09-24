@@ -21,6 +21,39 @@
 </head>
 
 <body>
+  <!-- Messenger Plugin chat Code Starts -->
+  <div id="fb-root"></div>
+
+  <!-- Your Plugin chat code -->
+  <div id="fb-customer-chat" class="fb-customerchat">
+  </div>
+
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "109950078861537");
+    chatbox.setAttribute("attribution", "biz_inbox");
+  </script>
+
+  <!-- Your SDK code -->
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: 'v18.0'
+      });
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <!-- Messenger Plugin chat Code Ends -->
+
+
   <!-- Navbar Start -->
   <div class="navbar-body">
     <!-- Navbar expands from large and collapses from size smaller than large -->
@@ -98,20 +131,20 @@
   <div class="contact-us-body">
     <div class="content-left flex-item">
       <h2 class="scripts2">Liên lạc với chúng tôi</h2>
-      <div class = "diachicontact">
+      <div class="diachicontact">
         <img src="../static/images/address.svg" alt="Địa chỉ" class="anh anh1">
-         <h2> Địa chỉ của chúng tôi:</h2>
-         <h2> Nhà 28, ngách 1/6, ngõ 140 Nguyễn Xiển, Thanh Xuân</h2>
+        <h2> Địa chỉ:</h2>
+        <h2> Tầng 2, Tòa 29T1 Hoàng Đạo Thúy, Phường Trung Hoà, Quận Cầu Giấy, Thành phố Hà Nội, Việt Nam</h2>
       </div>
-      <div class = "diachimail">
+      <div class="diachimail">
         <img src="../static/images/email.svg" alt="Email" class="anh anh1">
-         <h2> Địa chỉ gmail của chúng tôi:</h2>
-         <h2> ecosmartvietnam@gmail.com </h2>
+        <h2> Email:</h2>
+        <h2> mindxforbussiness@gmail.com </h2>
       </div>
-      <div class = "sodienthoai">
+      <div class="sodienthoai">
         <img src="../static/images/phone.svg" alt="Số điện thoại" class="anh anh1">
-        <h2> Số điện thoại của chúng tôi:</h2>
-        <h2> 09090909090 </h2>
+        <h2> Hotline:</h2>
+        <h2> 02477 773 1666 </h2>
       </div>
     </div>
 
@@ -119,31 +152,13 @@
       <form class="contact-box" id="contact-form">
         <h2 class="word">Mục gửi thư</h2>
 
-        <input
-          class="contact-item"
-          type="text"
-          name="from_name"
-          placeholder="Họ Tên*"
-          required
-        />
+        <input class="contact-item" type="text" name="from_name" placeholder="Họ Tên*" required />
         <br />
 
-        <input
-          class="contact-item"
-          type="email"
-          name="email_id"
-          placeholder="Email*"
-          required
-        />
+        <input class="contact-item" type="email" name="email_id" placeholder="Email*" required />
         <br />
 
-        <textarea
-          class="contact-item"
-          name="message"
-          id="messagebox"
-          placeholder="Lời nhắn*"
-          required
-        ></textarea>
+        <textarea class="contact-item" name="message" id="messagebox" placeholder="Lời nhắn*" required></textarea>
         <br />
         <input type="submit" class="button" value="Gửi" id="send-btn" />
       </form>

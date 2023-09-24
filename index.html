@@ -24,6 +24,39 @@
 </head>
 
 <body>
+  <!-- Messenger Plugin chat Code Starts -->
+  <div id="fb-root"></div>
+
+  <!-- Your Plugin chat code -->
+  <div id="fb-customer-chat" class="fb-customerchat">
+  </div>
+
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "109950078861537");
+    chatbox.setAttribute("attribution", "biz_inbox");
+  </script>
+
+  <!-- Your SDK code -->
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: 'v18.0'
+      });
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <!-- Messenger Plugin chat Code Ends -->
+
+
   <!-- Navbar Starts -->
   <div class="navbar-body">
     <!-- Navbar expands from large and collapses from size smaller than large -->
@@ -270,9 +303,7 @@
     <div class="footer-social">
       <a href="https://www.facebook.com/mindxschool"><i class="fa-brands fa-facebook footer-icon"></i></a>
 
-      <a
-        href="https://www.instagram.com"><i
-          class="fa-brands fa-instagram footer-icon"></i></a>
+      <a href="https://www.instagram.com"><i class="fa-brands fa-instagram footer-icon"></i></a>
 
       <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin footer-icon"></i></a>
     </div>
