@@ -1,13 +1,15 @@
 .register_body {
+  font-family: 'Inter';
   font-size: 0.625rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 90vh;
-  /* background-image: url("../images/signin_background.jpeg"); */
+  background-image: linear-gradient(to right, rgb(132, 25, 21), rgba(209, 55, 50, 0.75));
 }
 
 #registerForm {
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -19,7 +21,9 @@
 
 #registerForm h1 {
   color: rgba(209, 55, 50, 1);
-  font-size: 3em;
+  font-size: 4em;
+  font-weight: bolder;
+  height: 20%;
   text-align: center;
 }
 
@@ -27,7 +31,7 @@
 #registerForm button {
   font-size: 1.75em;
   padding: .5em;
-  margin: .5em 0;
+  margin: .5em 1em;
   text-align: center;
   border-radius: .5rem;
 }
@@ -43,4 +47,33 @@
   color: rgba(209, 55, 50, 1);
   border:rgba(209, 55, 50, 1) solid 2px;
   font-weight: bolder;
+}
+
+.change_tab{
+  font-size: 1rem;
+}
+
+.change_tab p{
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.change_tab a{
+  color: rgba(209, 55, 50, 1);
+  text-decoration: none;
+}
+
+.change_tab a:hover{
+  color: rgba(209, 55, 50, 1);
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.remember label{
+  font-size: 1rem;
+}
+
+#remember{
+  margin: 2px !important;
+  margin-left: 17px !important;
 }
