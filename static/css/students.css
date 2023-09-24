@@ -1,0 +1,116 @@
+.students_style {
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter';
+  background: rgba(209, 55, 50, 1);
+  height: 100%;
+  width: 90%;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+}
+
+.c_title {
+  margin-top: 1rem;
+  font-size: 35px;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.c_title:hover {
+  transform: scale(1.2);
+}
+
+.c_wrapper {
+  max-width: 1200px;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 3vw;
+}
+
+.c_wrapper .c_box {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  width: calc(33% - 20px);
+}
+
+.c_wrapper .c_box .c_info {
+  vertical-align: bottom;
+  width: calc(100% - 90px);
+}
+
+.c_wrapper .c_box .c_content {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c_wrapper .c_box .c_info .c_name {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.c_wrapper .c_box .c_info .c_job {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(209, 55, 50, 1);
+}
+
+.c_box i.quote,
+.c_rate i.fas,
+.c_rate i.far {
+  font-size: 20px;
+  color: rgba(209, 55, 50, 1);
+}
+
+.c_image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  background: #fff;
+}
+
+.c_image {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  padding: 3px;
+  background: rgba(209, 55, 50, 1);
+}
+
+/* Add animation after scroll */
+.students_loading.show {
+  animation: slideInFromRight 3s forwards;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(60%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@media (max-width: 1045px) {
+  .c_wrapper .c_box {
+      width: calc(50% - 20px);
+      margin: 10px 0;
+  }
+}
+
+@media (max-width: 702px) {
+  .c_wrapper .c_box {
+      width: 100%;
+  }
+}
