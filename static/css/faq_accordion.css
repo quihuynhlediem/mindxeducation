@@ -1,0 +1,36 @@
+.faq_accordion {
+	margin-top: 2rem;
+}
+.faq_title {
+	margin-top: 1rem;
+	font-size: 35px;
+	text-align: center;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	color: rgba(209, 55, 50, 1);
+}
+.accordion {
+	background-color: rgba(209, 55, 50, 1);
+	color: white;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	text-align: left;
+  border: none;
+	border-bottom: white 1px solid;
+	outline: none;
+	transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+	background-color: rgb(162, 56, 53);
+  font-weight: bolder;
+}
+
+.panel {
+	padding: 0 18px;
+	background-color: white;
+	display: none;
+	overflow: hidden;
+}
