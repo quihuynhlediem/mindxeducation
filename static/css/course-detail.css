@@ -1,189 +1,169 @@
-/* BO FONT CHUNG */
-.body-aboutus {
-  font-family: "Inter", sans-serif;
+*{
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  box-sizing: border-box;
 }
 
-.bodystyle {
-  font-family: "Inter", sans-serif;
+section{
+  padding: 3rem 0 2rem;
+}
+/* Post content*/
+.course-header{
+  width: 100%;
+  height: 480px;
+  background-size: 100%;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+}
+.course-container{
+  /* max-width: 800px; */
+  margin:auto;
+  width: 85%;
+}
+.header-content{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin-top: 4rem !important;
+}
+.header-title{
+  width: 70%;
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 1rem;
+  color: white;
+}
+.header-img{
+  width: auto;
+  height: 300px;
+  object-fit: cover;
+  border: 10px solid grey;
+}
+
+.back-link {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
   font-size: 20px;
-  background-color: #ffffff;
+  margin-bottom: 5px;
 }
 
-.interview p {
+.header-description {
+  color: white;
+  width: 60%;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.button-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 30%;
+  margin-top: 1.5rem;
+}
+.course-button {
+  width: 125px;
+	border-radius: 5px;
+  text-align: center;
+	font-size: 16px;
+	font-family: Inter;
+	font-weight: 500;
+	word-wrap: break-word;
+  padding: 6px 12px;
+  cursor: pointer;
+  box-shadow: 6.019999980926514px 6.019999980926514px 12.039999961853027px
+		3.009999990463257px rgba(0, 0, 0, 0.25);
+}
+
+.course-enroll {
+  background: #d13732;
+  color: white;
+}
+
+.course-readmore {
+  color: white;
+  border: 2px solid white;
+}
+
+.course-info {
+  margin: auto;
+  margin-top: -80px;
+  width: 85%;
+  background-color: white;
+  height: 160px;
+  border-radius: 16px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+  display:flex;
+  flex-direction: row;
+}
+
+.course-info-item {
+  margin: auto;
+  height: 80%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1.5px solid #d7d7d7;
+}
+
+.course-info-item:last-child {
+  border-right: none;
+}
+
+.info-detail {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.info-key{
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.info-value{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.post-content {
+  margin-top: 2rem;
+}
+.post-text{
+  font-size: 1rem;
+  line-height: 1.7rem;
+  margin: 1rem 0;
   text-align: justify;
 }
 
-/*-----------------------------------------------------*/
-
-/* BO FONT HEADING */
-
-.head1 {
-  display:flex;
-  background-image: url('https://resources.mindx.edu.vn/uploads/images/product-manager-nga%CC%80nh-hot-luong-cao-720.png');
-  background-size: cover;
-  padding-top: 20px;
-  height: 15vh;
-  width: 100%;
-  align-items:center;
-  justify-content:center;
+/* responsive */
+@media (max-width: 700px){
+section {
+  padding: 2rem 0;
 }
-.head1 h1 {
-  font-size: 6vh;
-  font-weight: bolder;
-  color: #FCF5E5;
-  animation: title-pageLoading 2s;
+.header-content{
+  margin-top: 3rem !important;
 }
-.head1 h1:hover {
-  transform: scale(1.2)
+.header-title{
+  font-size: 2rem;
 }
-#aboutus-content {
-  background-size: cover;
-  margin-top: 20px;
-  height: 200px;
-  width: 100%;
+.header-img{
+  height: 300px;
 }
-
-#aboutus-content h1 {
-  font-size: 80px;
-  font-weight: bolder;
-  color: rgb(65, 128, 49);
-  text-align: center;
-  padding-top: 80px;
+.post-header{
+  height: 435px;
 }
-.head2awareness {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  font-size: 4vh;
-  font-weight: bolder;
-  text-align: center;
-  color: #283746;
+.post-content{
+  margin-top: 6rem !important;
 }
-
-.head2executive {
-  margin-top: 2rem;
-  font-size: 4vh;
-  font-weight: bolder;
-  text-align: center;
-  color: #365949;
-  margin-bottom: 2rem;
-}
-
-.head2ourteam {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  font-size: 4vh;
-  font-weight: bolder;
-  text-align: center;
-  color: #283746;
-}
-
-/*-----------------------------------------------------*/
-
-.head2-2 {
-  margin-bottom: 50px;
-}
-
-.mainstyle {
-  width: 50%;
-  margin: 0 auto;
-  animation: pageLoading 2s;
-}
-
-.mainstyle-1 {
-  margin: 50px auto 50px auto;
-}
-
-.mainstyle-2 {
-  padding-top: 0.7rem;
-}
-
-.mainstyle-3 {
-  padding-top: 0.7rem;
-}
-
-@media (max-width: 1000px) {
-  .mainstyle {
-    width: 80%;
-    margin: 0 auto;
-  }
-}
-
-.caption {
-  width: 100%;
-}
-
-.founder_pic {
-  margin: 30px auto;
-  color: #283746;
-  text-align: center;
-  font-weight: bold;
-  font-size: 3vh;
-}
-
-.question {
-  font-weight: bold;
-  margin-top: 50px;
-  font-size: 2.3vh;
-  color: #283746;
-}
-.statementfromTri {
-  font-size: 2vh;
-  color: #283746;
-}
-.answer {
-  font-size: 1.8vh;
-  color: #283746;
-}
-
-@media (max-width: 625px) {
-  .head1 h1 {
-    font-size: 4vh;
-  }
-  .head2awareness {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    font-size: 3vh;
-    font-weight: bolder;
-    text-align: center;
-  }
-  .head2executive {
-    margin-top: 2rem;
-    font-size: 3vh;
-    font-weight: bolder;
-    text-align: center;
-  }
-  .head2ourteam {
-    margin-top: 2rem;
-    font-size: 3vh;
-    font-weight: bolder;
-    text-align: center;
-  }
-}
-.interview {
-  margin-bottom: 1.5rem;
-}
-
-@keyframes pageLoading {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.d-block {
-  animation: pageLoading 2s;
-}
-@keyframes title-pageLoading {
-  from {
-      opacity: 0;
-      transform: translateY(30px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
 }

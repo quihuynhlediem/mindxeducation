@@ -135,3 +135,19 @@
   color: #d13732;
   border: 2px solid #d13732;
 }
+
+.course-readmore a {
+	color: #d13732;
+	text-decoration: none;
+}
+
+.course-readmore a:hover {
+	color: #d13732;
+	scale: 1.1;
+	text-decoration: none;
+}
+
+.course-readmore a:click {
+	color: #d13732;
+	text-decoration: none;
+}
