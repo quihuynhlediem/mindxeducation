@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="show"></div>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import {
+      getDatabase,
+      set,
+      ref,
+      update,
+      onValue,
+      get
+    } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+    } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXfA8LBTNMME0x_PfPNNJMDk-Ctj7ON08",
+      authDomain: "mindxeducation-user.firebaseapp.com",
+      projectId: "mindxeducation-user",
+      storageBucket: "mindxeducation-user.appspot.com",
+      messagingSenderId: "338853320135",
+      appId: "1:338853320135:web:950c0a7740ff19575e35e2",
+      measurementId: "G-SHRT0GS1L0"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    // login
+    let thisUserId = localStorage.getItem("userid");
+    onValue(ref(database, "users/" + thisUserId), function (snapshot) {
+      if (snapshot.val().hasOwnProperty('courses') == true) {
+      localStorage.setItem("courses", JSON.stringify(snapshot.val().courses));
+      };
+      console.log(snapshot.hasOwnProperty('courses'));
+    });
+
+    setTimeout(function () {
+            window.open("../index.html", "_self");
+          }, 2000);
+  </script>
+</body>
+
+</html>
