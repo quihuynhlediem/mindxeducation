@@ -235,7 +235,7 @@
           localStorage.setItem("email", email); //Change navbar decision
 
           onValue(ref(database, "users/" + user.uid), function (snapshot) {
-            if (snapshot.hasOwnProperty('courses') == true) {
+            if (snapshot.val().hasOwnProperty('courses') == true) {
               localStorage.setItem("courses", JSON.stringify(snapshot.val().courses));
             }
           });
@@ -243,7 +243,7 @@
           alert("User login success");
 
           setTimeout(function () {
-            window.open("../html/trial.html", "_self");
+            window.open("../index.html", "_self");
           }, 2000);
         })
         .catch((error) => {
