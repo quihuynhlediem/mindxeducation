@@ -12,7 +12,7 @@ if (email != null) {
 	profile.style.width = "4rem";
 	profile.innerHTML = `
   <div class="profile-dropdown">
-    <div><img src="../static/images/student1.jpg"></div>
+    <div><img src="../static/images/user-avatar.png"></div>
     <div class="dropdown-content" id="profile-btn">
       <div class="inner-dropdown"><i id="profile-icon" class="fa-solid fa-user"></i>Hồ sơ</div>
     </div>
@@ -26,8 +26,9 @@ if (email != null) {
 	// Logout Starts
 	let logoutBtn = document.getElementById("logout-btn");
 	logoutBtn.addEventListener("click", () => {
-		localStorage.clear();
-		console.log(profile);
+    localStorage.clear();
+    setTimeout(function () {
+      console.log(profile);
 		profile.remove();
 		const signinItem = document.createElement("li");
 		signinItem.className = "nav-item";
@@ -45,6 +46,8 @@ if (email != null) {
   `;
 		navbar.appendChild(signinItem);
 		navbar.appendChild(signupItem);
+    }, 2000);
+		
 		// setTimeout(function () {
 		//   location.reload();
 		// }, 2000);
