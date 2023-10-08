@@ -68,7 +68,7 @@
 .nav-item {
 	margin: 0px 5px;
 	float: left;
-	width: 6rem !important;
+	width: 6rem;
 }
 
 #last-nav-item {
@@ -133,6 +133,7 @@
   display: block;
 	left: -100px;
 	border-radius: 10px 10px 0 0;
+	cursor: pointer;
 }
 
 .profile-dropdown:hover .dropdown-content:last-child {
