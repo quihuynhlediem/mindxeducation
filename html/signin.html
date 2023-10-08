@@ -233,7 +233,12 @@
 
           onValue(ref(database, "users/" + user.uid), function (snapshot) {
             localStorage.setItem("username", snapshot.val().username);
+            console.log(snapshot.val().username);
+            localStorage.setItem("courses", snapshot.val().courses);
+            console.log(snapshot.val().courses);
           });
+
+          localStorage.setItem("userid", user.uid);
 
           alert("User login success");
           localStorage.setItem("email", email);

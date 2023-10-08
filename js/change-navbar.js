@@ -34,7 +34,7 @@ if (email != null) {
 		signinItem.className = "nav-item";
 		signinItem.id = "signin-remove-item";
 		signinItem.innerHTML = `
-  <a class="nav-link" aria-current="page" href="./html/signin.html">Sign In
+  <a class="nav-link" aria-current="page" href="../html/signin.html">Sign In
   </a>
 `;
 		const signupItem = document.createElement("li");

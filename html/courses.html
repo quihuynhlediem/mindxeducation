@@ -153,7 +153,7 @@
       <div class="course-brief">Lộ trình chú trọng thực hành, chương trình học tối ưu, trang bị kiến thức và kỹ năng
         bám sát nhu cầu tuyển dụng của doanh nghiệp.</div>
       <div class="button-container">
-        <div class="course-button course-enroll">Đăng kí</div>
+        <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
         <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
       </div>
     </div>
@@ -165,7 +165,7 @@
       <div class="course-brief">Phân tích dữ liệu không chỉ là một ngành nghề tiềm năng mà sớm muộn gì cũng trở thành
         một kỹ năng thiết yếu mà nhà tuyển dụng yêu cầu.</div>
       <div class="button-container">
-        <div class="course-button course-enroll">Đăng kí</div>
+        <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
         <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
       </div>
     </div>
@@ -176,7 +176,7 @@
       <div class="course-brief">UI/UX Design hiện đang là ngành nghề thuộc lĩnh vực sáng tạo, thu
         hút nhân sự, đặc biệt là các bạn trẻ bởi tính linh hoạt, mới mẻ. </div>
       <div class="button-container">
-        <div class="course-button course-enroll">Đăng kí</div>
+        <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
         <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
       </div>
     </div>
@@ -188,7 +188,7 @@
       <div class="course-brief">Thực hành các kỹ thuật Supervised Learning, Unsupervised Learning và xây dựng mô hình dự
         báo hoàn chỉnh,...</div>
       <div class="button-container">
-        <div class="course-button course-enroll">Đăng kí</div>
+        <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
         <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
       </div>
     </div>
@@ -201,7 +201,7 @@
       <div class="course-brief">Khóa học cung cấp cho học sinh tư duy thuật toán - tư duy cơ bản nhất của việc chuyển
         hóa các vấn đề của cuộc sống...</div>
       <div class="button-container">
-        <div class="course-button course-enroll">Đăng kí</div>
+        <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
         <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
       </div>
     </div>
@@ -213,7 +213,7 @@
         năng làm việc nhóm, quy trình làm việc...
       </div>
       <div class="button-container">
-        <div class="course-button course-enroll">Đăng kí</div>
+        <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
         <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
       </div>
     </div>
@@ -259,6 +259,38 @@
   <script src="https://kit.fontawesome.com/550795c27f.js" crossorigin="anonymous"></script>
   <!-- Footer Ends -->
   <script src="../js/change-navbar.js"></script>
+  <!-- Thêm thuộc tính "defer" -->
+  <script src="../js/courses.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import {
+      getDatabase,
+      set,
+      ref,
+      update,
+      onValue,
+      get
+    } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXfA8LBTNMME0x_PfPNNJMDk-Ctj7ON08",
+      authDomain: "mindxeducation-user.firebaseapp.com",
+      projectId: "mindxeducation-user",
+      storageBucket: "mindxeducation-user.appspot.com",
+      messagingSenderId: "338853320135",
+      appId: "1:338853320135:web:950c0a7740ff19575e35e2",
+      measurementId: "G-SHRT0GS1L0"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    let thisUserId = localStorage.getItem("userid");
+    update(ref(database, "users/" + thisUserId), {
+      courses: coursesArray,
+    });
+  </script>
 </body>
 
 </html>
