@@ -67,7 +67,7 @@
           </a>
 
           <!-- Navbar Toggle contains the elements inside the list with the id of "navbarToggler" -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+          <button class="navbar-toggler" type="button" Id-bs-toggle="collapse" data-bs-target="#navbarToggler"
             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -144,8 +144,7 @@
     </div>
   </div>
   <div class="blog-container">
-    <a class="blog-link-clicked" href="./blog-detail.html">
-    <div class="blog-items">
+    <div class="blog-items" id="1" onclick="getBlogId(event)">
       <img src="https://resources.mindx.edu.vn/uploads/images/minh-quang-2.png" class="blog-img">
       <div class="blog-label">Lập trình</div>
       <div class="blog-title">Học lập trình nhanh với Python</div>
@@ -158,26 +157,22 @@
         <div>MindX Education</div>
       </div>
     </div>
-    </a>
-    <a class="blog-link-clicked" href="./blog-detail.html">
-      <div class="blog-items" href="./blog-detail.html">
-        <img
-          src="https://resources.mindx.edu.vn/uploads/images/Product%20Manager%20%20%20Nga%CC%80nh%20hot,%20lu%CC%9Bo%CC%9Bng%20cao%20va%CC%80%20cu%CC%9B%CC%A3c%20tie%CC%82%CC%80m%20na%CC%86ng%20trong%20tho%CC%9B%CC%80i%20%C4%91a%CC%A3i%20so%CC%82%CC%81.png"
-          class="blog-img">
-        <div class="blog-label">Sản phẩm</div>
-        <div class="blog-title">Product Management - Ngành hot, lương cao</div>
-        <div class="blog-brief">Được xem là một ngành "hot," thu hút ngày càng nhiều tài năng trẻ, Product Management
-          mang
-          lại cơ hội về mức lương hấp dẫn</div>
-        <div class="blog-post-date">21/09/2023</div>
-        <div class="blog-author">
-          <img src="../static/images/avatar.jpeg">
-          <div>MindX Education</div>
-        </div>
+    <div class="blog-items" id="2" onclick="getBlogId(event)">
+      <img
+        src="https://resources.mindx.edu.vn/uploads/images/Product%20Manager%20%20%20Nga%CC%80nh%20hot,%20lu%CC%9Bo%CC%9Bng%20cao%20va%CC%80%20cu%CC%9B%CC%A3c%20tie%CC%82%CC%80m%20na%CC%86ng%20trong%20tho%CC%9B%CC%80i%20%C4%91a%CC%A3i%20so%CC%82%CC%81.png"
+        class="blog-img">
+      <div class="blog-label">Sản phẩm</div>
+      <div class="blog-title">Product Management - Ngành hot, lương cao</div>
+      <div class="blog-brief">Được xem là một ngành "hot," thu hút ngày càng nhiều tài năng trẻ, Product Management
+        mang
+        lại cơ hội về mức lương hấp dẫn</div>
+      <div class="blog-post-date">21/09/2023</div>
+      <div class="blog-author">
+        <img src="../static/images/avatar.jpeg">
+        <div>MindX Education</div>
       </div>
-    </a>
-    <a class="blog-link-clicked" href="./blog-detail.html">
-    <div class="blog-items">
+    </div>
+    <div class="blog-items" id="3" onclick="getBlogId(event)">
       <img
         src="https://resources.mindx.edu.vn/uploads/images/A%CC%89nh%20%C4%91a%CC%A3i%20die%CC%A3%CC%82n-1695609288116-3718.png"
         class="blog-img">
@@ -191,9 +186,7 @@
         <div>MindX Education</div>
       </div>
     </div>
-    </a>
-    <a class="blog-link-clicked" href="./blog-detail.html">
-    <div class="blog-items">
+    <div class="blog-items" id="4" onclick="getBlogId(event)">
       <img src="https://resources.mindx.edu.vn/uploads/images/product-ower-lu%CC%9Bo%CC%9Bng1-1691380897398-4542.png"
         class="blog-img">
       <div class="blog-label">Sản phẩm</div>
@@ -206,9 +199,7 @@
         <div>MindX Education</div>
       </div>
     </div>
-    </a>
-    <a class="blog-link-clicked" href="./blog-detail.html">
-    <div class="blog-items">
+    <div class="blog-items" id="5" onclick="getBlogId(event)">
       <img
         src="https://resources.mindx.edu.vn/uploads/images/CodeMonkey%20t%E1%BA%ADp%20trung%20v%C3%A0o%20vi%E1%BB%87c%20gi%E1%BA%A3ng%20d%E1%BA%A1y%20l%E1%BA%ADp%20tr%C3%ACnh%20b%E1%BA%B1ng%20ng%C3%B4n%20ng%E1%BB%AF%20JavaScript.png"
         class="blog-img">
@@ -222,9 +213,7 @@
         <div>MindX Education</div>
       </div>
     </div>
-    </a>
-    <a class="blog-link-clicked" href="./blog-detail.html">
-    <div class="blog-items">
+    <div class="blog-items" id="6" onclick="getBlogId(event)">
       <img src="https://resources.mindx.edu.vn/uploads/images/luong-ui-ux-designer-4.png" class="blog-img">
       <div class="blog-label">UI/UX</div>
       <div class="blog-title">Lương UI/UX Designer theo từng tiêu chí</div>
@@ -236,7 +225,6 @@
         <div>MindX Education</div>
       </div>
     </div>
-    </a>
   </div>
   <!-- Blog Ends -->
 
@@ -279,6 +267,13 @@
   <script src="https://kit.fontawesome.com/550795c27f.js" crossorigin="anonymous"></script>
   <!-- Footer Ends -->
   <script src="../js/change-navbar.js"></script>
+  <script>
+    function getBlogId(event) {
+      const blogId = event.currentTarget.id;
+      localStorage.setItem('blogId', blogId);
+      window.location.href = './blog-detail.html';
+    }
+  </script>
 </body>
 
 </html>

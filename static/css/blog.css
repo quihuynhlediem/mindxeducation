@@ -69,10 +69,7 @@
 	margin-top: 30px;
 	margin-bottom: 30px;
 	padding-bottom: 5px;
-}
-
-.blog-link-clicked {
-	text-decoration: none;
+	cursor: pointer;
 }
 
 .blog-img {
