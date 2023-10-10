@@ -129,17 +129,17 @@
   <!-- Blog Starts -->
   <div class="tab-change-container">
     <div class="tab-change">
-      <div class="tab-change-items-active">
-        <div class="tab-change-text-active">Tất cả</div>
+      <div class="tab-change-inner tab-change-items-active">
+        <span id="1" class="text-change-inner tab-change-text-active" onclick="tabChange()">Tất cả</span>
       </div>
-      <div class="tab-change-items">
-        <div class="tab-change-text">Lập trình</div>
+      <div class="tab-change-inner tab-change-items">
+        <span id="2" class="text-change-inner tab-change-text" onclick="tabChange()">Lập trình</span>
       </div>
-      <div class="tab-change-items">
-        <div class="tab-change-text">UI/UX</div>
+      <div class="tab-change-inner tab-change-items">
+        <span id="3" class="text-change-inner tab-change-text" onclick="tabChange()">UI/UX</span>
       </div>
-      <div class="tab-change-items">
-        <div class="tab-change-text">Sản phẩm</div>
+      <div class="tab-change-inner tab-change-items">
+        <span id="4" class="text-change-inner tab-change-text" onclick="tabChange()">Sản phẩm</span>
       </div>
     </div>
   </div>
@@ -265,6 +265,7 @@
   <script src="https://kit.fontawesome.com/550795c27f.js" crossorigin="anonymous"></script>
   <!-- Footer Ends -->
   <script src="../js/change-navbar.js"></script>
+  <script src="../js/blog.js"></script>
   <script>
     function getBlogId(event) {
       const blogId = event.currentTarget.id;
