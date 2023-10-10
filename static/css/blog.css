@@ -30,6 +30,7 @@
 	justify-content: center;
 	align-items: center;
 	display: inline-flex;
+	cursor: pointer;
 }
 
 .tab-change-text-active {
@@ -40,6 +41,7 @@
 	font-weight: 600;
 	word-wrap: break-word;
   padding: 6px 12px;
+	cursor: pointer;
 }
 
 .tab-change-text {
