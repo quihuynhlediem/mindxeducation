@@ -56,6 +56,19 @@ section{
 .post-content {
   margin-top: 15rem;
 }
+
+.subtitle1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.subtitle2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
 .post-text{
   font-size: 1rem;
   line-height: 1.7rem;
