@@ -53,6 +53,14 @@
   </script>
   <!-- Messenger Plugin chat Code Ends -->
 
+  <script>
+    function getCourseId() {
+      let courseId = this.event.target.parentElement.parentElement.id;
+      localStorage.setItem('courseId', courseId);
+      window.location.href = './course-detail.html';
+    }
+  </script>
+
 
   <!-- Navbar Start -->
   <div class="navbar-body">
@@ -129,22 +137,23 @@
   <!-- Course Starts -->
   <div class="tab-change-container">
     <div class="tab-change">
-      <div class="tab-change-inner tab-change-items-active">
-        <span id="1" class="text-change-inner tab-change-text-active" onclick="tabChange()">Tất cả</span>
+      <div class="tab-change-items-active">
+        <div class="tab-change-text-active">Tất cả</div>
       </div>
-      <div class="tab-change-inner tab-change-items">
-        <span id="2" class="text-change-inner tab-change-text" onclick="tabChange()">Lập trình</span>
+      <div class="tab-change-items">
+        <div class="tab-change-text">Lập trình</div>
       </div>
-      <div class="tab-change-inner tab-change-items">
-        <span id="3" class="text-change-inner tab-change-text" onclick="tabChange()">UI/UX</span>
+      <div class="tab-change-items">
+        <div class="tab-change-text">UI/UX</div>
       </div>
-      <div class="tab-change-inner tab-change-items">
-        <span id="4" class="text-change-inner tab-change-text" onclick="tabChange()">Dữ liệu</span>
+      <div class="tab-change-items">
+        <div class="tab-change-text">Dữ liệu
+        </div>
       </div>
     </div>
   </div>
   <div class="course-container">
-    <div class="course-items">
+    <div class="course-items" id="1">
       <img src="https://w.ladicdn.com/s700x500/5cefbc1ed062e8345a24dfe8/untitled-1-13-20230803080206-67keu.png"
         class="course-img">
       <div class="course-label">Lập trình</div>
@@ -153,10 +162,10 @@
         bám sát nhu cầu tuyển dụng của doanh nghiệp.</div>
       <div class="button-container">
         <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
-        <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
+        <div class="course-button course-readmore" onclick="getCourseId(event)">Đọc thêm</div>
       </div>
     </div>
-    <div class="course-items">
+    <div class="course-items" id="2">
       <img src="https://w.ladicdn.com/s550x500/5cefbc1ed062e8345a24dfe8/untitled-design-1-20230317111803-5gydg.jpg"
         class="course-img">
       <div class="course-label">Dữ liệu</div>
@@ -165,10 +174,10 @@
         một kỹ năng thiết yếu mà nhà tuyển dụng yêu cầu.</div>
       <div class="button-container">
         <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
-        <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
+        <div class="course-button course-readmore" onclick="getCourseId(event)">Đọc thêm</div>
       </div>
     </div>
-    <div class="course-items">
+    <div class="course-items" id="3">
       <img src="https://w.ladicdn.com/s550x500/5cefbc1ed062e8345a24dfe8/3-20230322041130--kmzr.jpg" class="course-img">
       <div class="course-label">UI/UX</div>
       <div class="course-title">Khoá học UI/UX Design cơ bản</div>
@@ -176,10 +185,10 @@
         hút nhân sự, đặc biệt là các bạn trẻ bởi tính linh hoạt, mới mẻ. </div>
       <div class="button-container">
         <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
-        <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
+        <div class="course-button course-readmore" onclick="getCourseId(event)">Đọc thêm</div>
       </div>
     </div>
-    <div class="course-items">
+    <div class="course-items" id="4">
       <img src="https://w.ladicdn.com/s550x500/5cefbc1ed062e8345a24dfe8/untitled-design-1-20230317111803-5gydg.jpg"
         class="course-img">
       <div class="course-label">Dữ liệu</div>
@@ -188,10 +197,10 @@
         báo hoàn chỉnh,...</div>
       <div class="button-container">
         <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
-        <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
+        <div class="course-button course-readmore" onclick="getCourseId(event)">Đọc thêm</div>
       </div>
     </div>
-    <div class="course-items">
+    <div class="course-items" id="5">
       <img
         src="https://resources.mindx.edu.vn/uploads/images/Thi%E1%BA%BFt%20k%E1%BA%BF%20giao%20di%E1%BB%87n%20tr%C3%B2%20ch%C6%A1i.png"
         class="course-img">
@@ -201,10 +210,10 @@
         hóa các vấn đề của cuộc sống...</div>
       <div class="button-container">
         <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
-        <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
+        <div class="course-button course-readmore" onclick="getCourseId(event)">Đọc thêm</div>
       </div>
     </div>
-    <div class="course-items">
+    <div class="course-items" id="6">
       <img src="https://resources.mindx.edu.vn/uploads/images/luong-ui-ux-designer-4.png" class="course-img">
       <div class="course-label">UI/UX</div>
       <div class="course-title">Khoá học UI/UX Design nâng cao</div>
@@ -213,7 +222,7 @@
       </div>
       <div class="button-container">
         <div class="course-button course-enroll" onclick="addCourse(event)">Đăng kí</div>
-        <div class="course-button course-readmore"><a href="./course-detail.html">Đọc thêm</a></div>
+        <div class="course-button course-readmore" onclick="getCourseId(event)">Đọc thêm</div>
       </div>
     </div>
   </div>
@@ -290,6 +299,7 @@
       courses: coursesArray,
     });
   </script>
+
 </body>
 
 </html>
