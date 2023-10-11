@@ -46,7 +46,8 @@ if (email != null) {
   `;
 		navbar.appendChild(signinItem);
 		navbar.appendChild(signupItem);
-    }, 2000);
+		}, 2000);
+		window.location.reload();
 		
 		// setTimeout(function () {
 		//   location.reload();
