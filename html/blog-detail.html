@@ -7,6 +7,7 @@
   <title id="tab-title"></title>
   <link rel="stylesheet" href="../static/css/navbar.css">
   <link rel="stylesheet" href="../static/css/blog-detail.css">
+  <link rel="stylesheet" href="../static/css/comments.css">
   <link rel="stylesheet" href="../static/css/footer.css">
   <!-- Navbar Additional Links Start -->
   <!-- Bootstrap -->
@@ -145,6 +146,38 @@
   <section class="post-content post container">
   </section>
 
+  <div class="comment-box">
+    <div class="comment-box-container">
+    <img id="user-avatar-cmt" alt = "Avatar" src="../../static/images/avatar.jpeg">
+    <form class="form-container">
+      <div class="rating">
+        <input type="radio" id="star1" name="rating" value="1" />
+        <label class="star-label" for="star1" onmouseover="starMouseover()" onmouseout="starMouseout()">&#9734;</label>
+        <input type="radio" id="star2" name="rating" value="2" />
+        <label class="star-label" for="star2" onmouseover="starMouseover()" onmouseout="starMouseout()">&#9734;</label>
+        <input type="radio" id="star3" name="rating" value="3" />
+        <label class="star-label" for="star3" onmouseover="starMouseover()" onmouseout="starMouseout()">&#9734;</label>
+        <input type="radio" id="star4" name="rating" value="4" />
+        <label class="star-label" for="star4" onmouseover="starMouseover()" onmouseout="starMouseout()">&#9734;</label>
+        <input type="radio" id="star5" name="rating" value="5" />
+        <label class="star-label" for="star5" onmouseover="starMouseover()" onmouseout="starMouseout()">&#9734;</label>
+      </div>
+
+      <!-- <label for="comment">Leave a comment:</label> -->
+      <!-- This is a textarea input field for users to leave their comments on a blog post. -->
+      <textarea id="comment" name="comment" placeholder="What do you think about this post?"></textarea>
+      
+
+    </form>
+    
+  </div>
+  <div class="button-container">
+    <button type="submit" class="submit-btn">Submit</button>
+    <button type="cancel" class="cancel-btn">Cancel</button>
+  </div>
+
+  </div>
+
   <!-- Blog Detail Ends -->
 
 
@@ -187,6 +220,7 @@
   <!-- Footer Ends -->
   <script src="../js/change-navbar.js"></script>
   <script src="../js/blog-detail-data.js"></script>
+  <script src="../js/comments.js"></script>
 </body>
 
 </html>
