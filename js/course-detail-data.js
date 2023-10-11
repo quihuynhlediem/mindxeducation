@@ -1,3 +1,4 @@
+//Render data from js file
 let courseTitle = document.getElementsByClassName("header-title")[0];
 let tabTitle = document.getElementById("tab-title");
 let courseDescription =
@@ -119,3 +120,25 @@ for (i = 0; i < vieData[courseId].main_content.length; i++) {
 	newPart.className = "post-text";
 	courseOverview.appendChild(newPart);
 }
+
+// Enroll button status update
+let courses = JSON.parse(localStorage.getItem("courses"));
+if ((courses) && (courses.includes(vieData[courseId].title))) {
+	enrollBtn.innerText = "Đã đăng ký";
+	enrollBtn.disabled = true;
+	enrollBtn.style.backgroundColor = "#982a26";
+}
+
+// Click to enroll course on detail page
+enrollBtn.addEventListener("click", function () {
+	if (courses) {
+		courses.push(vieData[courseId].title);
+		localStorage.setItem("courses", JSON.stringify(courses));
+	} else {
+		localStorage.setItem("courses", JSON.stringify([vieData[courseId].title]));
+	}
+	enrollBtn.innerText = "Đã đăng ký";
+	enrollBtn.disabled = true;
+	enrollBtn.style.backgroundColor = "#982a26";
+	window.location.reload();
+});
