@@ -237,6 +237,7 @@
           onValue(ref(database, "users/" + user.uid), function (snapshot) {
             if (snapshot.val().hasOwnProperty('courses') == true) {
               localStorage.setItem("courses", JSON.stringify(snapshot.val().courses));
+              localStorage.setItem("username", snapshot.val().username);
             }
           });
 

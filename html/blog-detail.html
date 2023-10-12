@@ -165,16 +165,19 @@
 
       <!-- <label for="comment">Leave a comment:</label> -->
       <!-- This is a textarea input field for users to leave their comments on a blog post. -->
-      <textarea id="comment" name="comment" placeholder="What do you think about this post?"></textarea>
+      <textarea id="comment" name="comment" placeholder="Bạn nghĩ gì về bài viết này?"></textarea>
       
 
     </form>
     
   </div>
   <div class="button-container">
-    <button type="submit" class="submit-btn">Submit</button>
-    <button type="cancel" class="cancel-btn">Cancel</button>
+    <button type="submit" class="submit-btn">Bình luận</button>
+    <button type="cancel" class="cancel-btn">Huỷ</button>
   </div>
+
+  </div>
+  <div class="comments-container">
 
   </div>
 
@@ -221,6 +224,32 @@
   <script src="../js/change-navbar.js"></script>
   <script src="../js/blog-detail-data.js"></script>
   <script src="../js/comments.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import {
+      getDatabase,
+      set,
+      ref,
+      update,
+      onValue,
+      get
+    } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXfA8LBTNMME0x_PfPNNJMDk-Ctj7ON08",
+      authDomain: "mindxeducation-user.firebaseapp.com",
+      projectId: "mindxeducation-user",
+      storageBucket: "mindxeducation-user.appspot.com",
+      messagingSenderId: "338853320135",
+      appId: "1:338853320135:web:950c0a7740ff19575e35e2",
+      measurementId: "G-SHRT0GS1L0"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+  </script>
 </body>
 
 </html>

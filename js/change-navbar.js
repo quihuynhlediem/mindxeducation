@@ -26,7 +26,10 @@ if (email != null) {
 	// Logout Starts
 	let logoutBtn = document.getElementById("logout-btn");
 	logoutBtn.addEventListener("click", () => {
-    localStorage.clear();
+		localStorage.removeItem("username");
+		localStorage.removeItem("userid");
+		localStorage.removeItem("email");
+		localStorage.removeItem("courses");
     setTimeout(function () {
       console.log(profile);
 		profile.remove();
