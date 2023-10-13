@@ -3,6 +3,7 @@ let starLabel = document.querySelectorAll(".star-label");
 let starCheck = document.querySelectorAll(".rating input[type=radio]");
 let ratingContainer = document.querySelector(".rating");
 let starValue = 0;
+const blogid = localStorage.getItem("blogId");
 
 ratingContainer.addEventListener("click", function () {
 	for (i = 0; i < 5; i++) {
@@ -41,44 +42,78 @@ let commentContainer = document.querySelector(".comments-container");
 let submitBtn = document.getElementsByClassName("submit-btn")[0];
 let cancelBtn = document.getElementsByClassName("cancel-btn")[0];
 
+function renderComment(username, date, rating, content) {
+	let userComment = document.createElement("div");
+	userComment.className = "user-comment";
+	userComment.innerHTML = `
+		<div class="comment-header">
+			<div class="comment-user">
+				<img src="../../static/images/avatar.jpeg" alt="user">
+				<div class="cmt-user-date">
+					<span class="comment-username">${username}</span>
+					<span class="comment-date">${date}</span>
+				</div>
+			</div>
+			<span class="comment-star"></span>  
+		</div>
+		<div class="comment-content">
+			<p>${content}</p>
+		</div>
+	`;
+	commentContainer.appendChild(userComment);
+	let commentRating = userComment.querySelector(".comment-star");
+	for (i = 0; i < rating; i++) {
+		let star = document.createElement("label");
+		star.className = "star-label-comment";
+		star.innerHTML = "&#9733;";
+		commentRating.appendChild(star);
+	}
+	for (i = rating; i < 5; i++) {
+		let star = document.createElement("label");
+		star.className = "star-label-comment";
+		star.innerHTML = "&#9734;";
+		commentRating.appendChild(star);
+	}
+}
+
 submitBtn.addEventListener("click", function () {
 	if (commentContent.value == "") {
 		alert("Please enter your comment!");
-  } else {
-    let username = localStorage.getItem("username");
-    let dt = new Date();
-    let date = dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate();
-		let userComment = document.createElement("div");
-		userComment.className = "user-comment";
-		userComment.innerHTML = `
-      <div class="comment-header">
-        <div class="comment-user">
-          <img src="../../static/images/avatar.jpeg" alt="user">
-          <div class="cmt-user-date">
-            <span class="comment-username">${username}</span>
-            <span class="comment-date">${date}</span>
-          </div>
-        </div>
-        <span class="comment-star"></span>  
-      </div>
-      <div class="comment-content">
-        <p>${commentContent.value}</p>
-      </div>
-    `;
-    commentContainer.appendChild(userComment);
-    let commentRating = userComment.querySelector(".comment-star");
-    for (i = 0; i < starValue; i++) {
-      let star = document.createElement("label");
-      star.className = "star-label-comment";
-      star.innerHTML = "&#9733;";
-			commentRating.appendChild(star);
+	} else {
+		let username = localStorage.getItem("username");
+		let dt = new Date();
+		let date =
+			dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate();
+
+		renderComment(username, date, starValue, commentContent.value);
+
+		// Store cmt data in localStorage Starts
+		let currentComment = {
+			username: username,
+			date: date,
+			rating: starValue,
+			content: commentContent.value,
+		};
+
+		let commentsObj;
+		let commentsArray;
+		if (localStorage.getItem("comments") === null) {
+			commentsObj = {};
+		} else {
+			commentsObj = JSON.parse(localStorage.getItem("comments"));
 		}
-		for (i = starValue; i < 5; i++) {
-      let star = document.createElement("label");
-      star.className = "star-label-comment";
-      star.innerHTML = "&#9734;";
-			commentRating.appendChild(star);
+
+		if (commentsObj[blogid] === null || commentsObj[blogid] === undefined) {
+			commentsArray = [];
+		} else {
+			commentsArray = commentsObj[blogid];
 		}
+
+		commentsArray.push(currentComment);
+		commentsObj[blogid] = commentsArray;
+		localStorage.setItem("comments", JSON.stringify(commentsObj));
+		// Store cmt data in localStorage Ends
+
 		commentContent.value = "";
 		starValue = 0;
 		for (i = 0; i < 5; i++) {
@@ -86,3 +121,28 @@ submitBtn.addEventListener("click", function () {
 		}
 	}
 });
+
+// Render comments from localStorage Starts
+let commentsObject;
+if (localStorage.getItem("comments") === null) {
+	commentsObject = {};
+} else {
+	commentsObject = JSON.parse(localStorage.getItem("comments"));
+}
+let commentArray = commentsObject[blogid];
+if (commentArray === null || commentArray === undefined) {
+	commentArray = [];
+}
+
+commentArray.forEach(comment => {
+  renderComment(comment.username, comment.date, comment.rating, comment.content);
+});
+
+// for (i = 0; i < commentArray.length; i++) {
+// 	renderComment(
+// 		commentArray[i].username,
+// 		commentArray[i].date,
+// 		commentArray[i].rating,
+// 		commentArray[i].content
+// 	);
+//  }
