@@ -113,12 +113,13 @@ submitBtn.addEventListener("click", function () {
 		commentsObj[blogid] = commentsArray;
 		localStorage.setItem("comments", JSON.stringify(commentsObj));
 		// Store cmt data in localStorage Ends
-
-		commentContent.value = "";
-		starValue = 0;
-		for (i = 0; i < 5; i++) {
-			starLabel[i].innerHTML = "&#9734;";
-		}
+		setTimeout(function () {
+			commentContent.value = "";
+			starValue = 0;
+			for (i = 0; i < 5; i++) {
+				starLabel[i].innerHTML = "&#9734;";
+			}
+		}, 1000);
 	}
 });
 
@@ -134,15 +135,16 @@ if (commentArray === null || commentArray === undefined) {
 	commentArray = [];
 }
 
-commentArray.forEach(comment => {
-  renderComment(comment.username, comment.date, comment.rating, comment.content);
-});
+// commentArray.forEach(comment => {
+//   renderComment(comment.username, comment.date, comment.rating, comment.content);
+// });
 
-// for (i = 0; i < commentArray.length; i++) {
-// 	renderComment(
-// 		commentArray[i].username,
-// 		commentArray[i].date,
-// 		commentArray[i].rating,
-// 		commentArray[i].content
-// 	);
-//  }
+
+for (let i = 0; i < commentArray.length; i++) {
+	renderComment(
+		commentArray[i].username,
+		commentArray[i].date,
+		commentArray[i].rating,
+		commentArray[i].content
+	);
+ }

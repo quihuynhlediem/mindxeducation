@@ -225,9 +225,65 @@
 
   <script src="https://kit.fontawesome.com/550795c27f.js" crossorigin="anonymous"></script>
   <!-- Footer Ends -->
+
   <script src="../js/change-navbar.js"></script>
   <script src="../js/blog-detail-data.js"></script>
   <script src="../js/comments.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import {
+      getDatabase,
+      set,
+      ref,
+      update,
+      onValue,
+      get
+    } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXfA8LBTNMME0x_PfPNNJMDk-Ctj7ON08",
+      authDomain: "mindxeducation-user.firebaseapp.com",
+      projectId: "mindxeducation-user",
+      storageBucket: "mindxeducation-user.appspot.com",
+      messagingSenderId: "338853320135",
+      appId: "1:338853320135:web:950c0a7740ff19575e35e2",
+      measurementId: "G-SHRT0GS1L0"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    let submitBtn = document.querySelector(".submit-btn");
+    let comments = JSON.parse(localStorage.getItem("comments"));
+
+    submitBtn.addEventListener("click", function () {
+      update(ref(database, "/"), {
+        blog_comments: comments
+      });
+      onValue(ref(database, "/"), (snapshot) => {
+        if (snapshot.val().hasOwnProperty('comments') == true) {
+          let data = snapshot.val().blog_comments;
+          localStorage.setItem("comments", JSON.stringify(data));
+        }
+      });
+      console.log("Updated");
+    });
+
+    if (comments == null || comments == undefined) {
+      onValue(ref(database, "/"), (snapshot) => {
+        if (snapshot.val().hasOwnProperty('courses') == true) {
+          let data = snapshot.val().blog_comments;
+          localStorage.setItem("comments", JSON.stringify(data));
+        }
+        setTimeout(function () {
+          console.log("Updated");
+        }, 2000);
+      });
+    }
+
+  </script>
+
 </body>
 
 </html>
