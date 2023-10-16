@@ -152,15 +152,16 @@
       <form class="contact-box" id="contact-form">
         <h2 class="word">Mục gửi thư</h2>
 
-        <input class="contact-item" type="text" name="from_name" placeholder="Họ Tên*" required />
+        <input class="contact-item" type="text" name="customer_name" id="customer_name" placeholder="Họ Tên*" required>
         <br />
 
-        <input class="contact-item" type="email" name="email_id" placeholder="Email*" required />
+        <input class="contact-item" type="text" name="customer_email" id="customer_email" placeholder="Email*" required>
+
         <br />
 
-        <textarea class="contact-item" name="message" id="messagebox" placeholder="Lời nhắn*" required></textarea>
+        <textarea class="contact-item" type="text" name="message" id="message" placeholder="Lời nhắn*" required ></textarea>
         <br />
-        <input type="submit" class="button" value="Gửi" id="send-btn" />
+        <button class="button" id="send-btn" >Gửi</button>
       </form>
     </div>
   </div>
@@ -205,6 +206,11 @@
   <script src="https://kit.fontawesome.com/550795c27f.js" crossorigin="anonymous"></script>
   <!-- Footer Ends -->
   <script src="../js/change-navbar.js"></script>
+  <script type="text/javascript" src="../js/contact.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    emailjs.init('2j5-ua56m7075Y4SA')
+  </script>
 
 </body>
 
