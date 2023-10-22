@@ -238,6 +238,7 @@
             if (snapshot.val().hasOwnProperty('courses') == true) {
               localStorage.setItem("courses", JSON.stringify(snapshot.val().courses));
               localStorage.setItem("username", snapshot.val().username);
+              localStorage.setItem("avatar", snapshot.val().avatar);
             }
           });
 

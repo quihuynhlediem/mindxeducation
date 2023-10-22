@@ -36,6 +36,14 @@
   border-radius: .5rem;
 }
 
+#registerForm label {
+  font-size: 2em;
+  margin: .5em 1em;
+  margin-bottom: 0;
+  text-align: left;
+
+}
+
 #registerForm button {
   background-color: rgba(209, 55, 50, 1);
   color: white;

@@ -135,6 +135,8 @@
       <input type="text" placeholder="Enter your username" id="usernameSignup" />
       <input type="text" placeholder="Enter your email" id="emailSignup" />
       <input type="text" placeholder="Enter your password" id="passwordSignup" />
+      <label for="avatarSignup">Choose a profile picture:</label>
+      <input type="file" id="avatarSignup" />
       <div class="remember">
         <input type="checkbox" id="remember" />
         <label for="remember">Remember me</label>
@@ -203,6 +205,7 @@
       createUserWithEmailAndPassword,
       signInWithEmailAndPassword,
     } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+    import { getStorage, ref as refStorage, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAXfA8LBTNMME0x_PfPNNJMDk-Ctj7ON08",
@@ -218,13 +221,28 @@
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
     const auth = getAuth();
+    const storage = getStorage(app);
 
     // sign up
     let signUp = document.getElementById("signUp");
+    let signUpImg = document.getElementById("avatarSignup");
+
+    signUpImg.addEventListener("change", function (e) {
+      let file = e.target.files[0];
+      let storageRef = refStorage(storage, "images/" + file.name);
+      uploadBytes(storageRef, file).then((snapshot) => {
+        console.log("Uploaded a blob or file!");
+        getDownloadURL(snapshot.ref).then((url) => {
+          console.log(url);
+          localStorage.setItem("avatar", url);
+        });
+      });
+    });
     signUp.addEventListener("click", function () {
       let username = document.getElementById("usernameSignup").value;
       let email = document.getElementById("emailSignup").value;
       let password = document.getElementById("passwordSignup").value;
+      let imgUrl = localStorage.getItem("avatar");
 
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -234,11 +252,13 @@
             username: username,
             email: email,
             courses: [],
+            avatar: imgUrl,
           });
           alert("Account created");
           username = "";
           email = "";
           password = "";
+          signUpImg.value = "";
           setTimeout(function () {
             window.open("./signin.html", "_self");
           }, 2000);

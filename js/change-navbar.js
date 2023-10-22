@@ -2,6 +2,8 @@ let email = localStorage.getItem("email");
 let signinRemoveItem = document.getElementById("signin-remove-item");
 let signupRemoveItem = document.getElementById("signup-remove-item");
 let navbar = document.getElementById("nav-list");
+let avatarUrl = localStorage.getItem("avatar") == null ? "../static/images/user-avatar.png" : localStorage.getItem("avatar");
+
 
 // Change from non-logged-in to logged-in Starts
 if (email != null) {
@@ -12,7 +14,7 @@ if (email != null) {
 	profile.style.width = "4rem";
 	profile.innerHTML = `
   <div class="profile-dropdown">
-    <div><img src="../static/images/user-avatar.png"></div>
+    <div><img src="${avatarUrl}"></div>
     <div class="dropdown-content" id="profile-btn">
       <div class="inner-dropdown"><i id="profile-icon" class="fa-solid fa-user"></i>Hồ sơ</div>
     </div>

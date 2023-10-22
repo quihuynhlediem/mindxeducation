@@ -4,6 +4,12 @@ let starCheck = document.querySelectorAll(".rating input[type=radio]");
 let ratingContainer = document.querySelector(".rating");
 let starValue = 0;
 const blogid = localStorage.getItem("blogId");
+let avatarURL = localStorage.getItem("avatar") == null ? "../static/images/user-avatar.png" : localStorage.getItem("avatar");
+
+
+//Add avatar to comment box
+let avatarCmtBox = document.getElementById("user-avatar-cmt");
+avatarCmtBox.src = avatarURL;
 
 ratingContainer.addEventListener("click", function () {
 	for (i = 0; i < 5; i++) {
@@ -48,7 +54,7 @@ function renderComment(username, date, rating, content) {
 	userComment.innerHTML = `
 		<div class="comment-header">
 			<div class="comment-user">
-				<img src="../../static/images/avatar.jpeg" alt="user">
+				<img src=${avatarURL}>
 				<div class="cmt-user-date">
 					<span class="comment-username">${username}</span>
 					<span class="comment-date">${date}</span>
