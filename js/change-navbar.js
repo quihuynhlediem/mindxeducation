@@ -32,6 +32,7 @@ if (email != null) {
 		localStorage.removeItem("userid");
 		localStorage.removeItem("email");
 		localStorage.removeItem("courses");
+		localStorage.removeItem("avatar");
     setTimeout(function () {
       console.log(profile);
 		profile.remove();
