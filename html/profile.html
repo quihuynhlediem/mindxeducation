@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đăng nhập</title>
+  <title>Trang cá nhân</title>
   <link rel="stylesheet" href="../static/css/navbar.css">
-  <link rel="stylesheet" href="../static/css/signin.css">
+  <link rel="stylesheet" href="../static/css/profile.css">
   <link rel="stylesheet" href="../static/css/footer.css">
   <!-- Navbar Additional Links Start -->
   <!-- Bootstrap -->
@@ -91,13 +91,13 @@
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="signin.html">Sign In
+              <li class="nav-item" id="signin-remove-item">
+                <a class="nav-link" aria-current="page" href="./signin.html">Sign In
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="signup.html">Sign Up
+              <li class="nav-item" id="signup-remove-item">
+                <a class="nav-link" aria-current="page" href="./signup.html">Sign Up
                 </a>
               </li>
 
@@ -127,24 +127,24 @@
   <!-- Navbar End -->
 
 
-  <!-- Sign In Starts -->
-  <div class="register_body">
-    <div id="registerForm">
-      <h1>Sign In</h1>
-      <input type="text" placeholder="Enter your email" id="usernameLogin" />
-      <input type="text" placeholder="Enter your password" id="passwordLogin" />
-      <div class="remember">
-        <input type="checkbox" id="remember" />
-        <label for="remember">Remember me</label>
-        <!-- Luu username + pass vao localStorage -->
+  <!-- Profile Starts -->
+  <div class="profile-body">
+    <div class="profile-container">
+      <img class="cover-photo" src="../static/images/blog-background.png" alt="Cover Photo">
+
+      <img class="avatar" src="../static/images/user-avatar.png" alt="Avatar">
+
+      <div class="user-info">
+        <div class="username">Your Username</div>
+        <div class="email">your@email.com</div>
       </div>
-      <button id="login">Submit</button>
-      <div class="change_tab">
-        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+
+      <div class="courses">
+        <h2>Khoá học đã đăng kí</h2>
       </div>
     </div>
   </div>
-  <!-- Sign In Ends -->
+  <!-- Profile Ends -->
 
 
   <!-- Footer Starts -->
@@ -184,82 +184,13 @@
 
   <script src="https://kit.fontawesome.com/550795c27f.js" crossorigin="anonymous"></script>
   <!-- Footer Ends -->
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-    import {
-      getDatabase,
-      set,
-      ref,
-      update,
-      onValue,
-      get
-    } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
-    import {
-      getAuth,
-      createUserWithEmailAndPassword,
-      signInWithEmailAndPassword,
-    } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-    import { getStorage, ref as refStorage, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
-
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyAXfA8LBTNMME0x_PfPNNJMDk-Ctj7ON08",
-      authDomain: "mindxeducation-user.firebaseapp.com",
-      projectId: "mindxeducation-user",
-      storageBucket: "mindxeducation-user.appspot.com",
-      messagingSenderId: "338853320135",
-      appId: "1:338853320135:web:950c0a7740ff19575e35e2",
-      measurementId: "G-SHRT0GS1L0"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-    const auth = getAuth();
-    const storage = getStorage(app);
-
-
-    // login
-    let login = document.getElementById("login");
-    login.addEventListener("click", function () {
-      let email = document.getElementById("usernameLogin").value;
-      let password = document.getElementById("passwordLogin").value;
-
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in
-          let dt = new Date();
-          const user = userCredential.user;
-          update(ref(database, "users/" + user.uid), {
-            lastLogin: dt,
-          });
-
-          localStorage.setItem("userid", user.uid);
-          localStorage.setItem("email", email); //Change navbar decision
-
-          onValue(ref(database, "users/" + user.uid), function (snapshot) {
-            localStorage.setItem("username", snapshot.val().username);
-            localStorage.setItem("avatar", snapshot.val().avatar);
-            if (snapshot.val().hasOwnProperty('courses') == true) {
-              localStorage.setItem("courses", JSON.stringify(snapshot.val().courses));
-            }
-          });
-
-          alert("User login success");
-
-          setTimeout(function () {
-            window.open("../index.html", "_self");
-          }, 2000);
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          alert(errorMessage);
-        });
-    });
-
+  <script src="../js/change-navbar.js"></script>
+  <script type="text/javascript" src="../js/profile.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    emailjs.init('2j5-ua56m7075Y4SA')
   </script>
+
 </body>
 
 </html>

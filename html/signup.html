@@ -231,7 +231,7 @@
       let file = e.target.files[0];
       let storageRef = refStorage(storage, "images/" + file.name);
       uploadBytes(storageRef, file).then((snapshot) => {
-        console.log("Uploaded a blob or file!");
+        console.log("Uploaded a blog or file!");
         getDownloadURL(snapshot.ref).then((url) => {
           console.log(url);
           localStorage.setItem("avatar", url);

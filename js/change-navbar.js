@@ -16,7 +16,7 @@ if (email != null) {
   <div class="profile-dropdown">
     <div><img src="${avatarUrl}"></div>
     <div class="dropdown-content" id="profile-btn">
-      <div class="inner-dropdown"><i id="profile-icon" class="fa-solid fa-user"></i>Hồ sơ</div>
+      <div class="inner-dropdown"><a href="../../html/profile.html" style="text-decoration: none; color: white"><i id="profile-icon" class="fa-solid fa-user"></i>Hồ sơ</a></div>
     </div>
     <div class="dropdown-content" id="logout-btn">
       <div class="inner-dropdown"><i id="logout-icon" class="fa-solid fa-right-from-bracket"></i>Đăng xuất</div>
