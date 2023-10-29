@@ -83,49 +83,54 @@ function renderComment(username, date, rating, content) {
 }
 
 submitBtn.addEventListener("click", function () {
-	if (commentContent.value == "") {
-		alert("Please enter your comment!");
-	} else {
-		let username = localStorage.getItem("username");
-		let dt = new Date();
-		let date =
-			dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate();
-
-		renderComment(username, date, starValue, commentContent.value);
-
-		// Store cmt data in localStorage Starts
-		let currentComment = {
-			username: username,
-			date: date,
-			rating: starValue,
-			content: commentContent.value,
-		};
-
-		let commentsObj;
-		let commentsArray;
-		if (localStorage.getItem("comments") === null) {
-			commentsObj = {};
+	if (localStorage.getItem("username") != null) {
+		if (commentContent.value == "") {
+			alert("Please enter your comment!");
 		} else {
-			commentsObj = JSON.parse(localStorage.getItem("comments"));
-		}
+			let username = localStorage.getItem("username");
+			let dt = new Date();
+			let date =
+				dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate();
 
-		if (commentsObj[blogid] === null || commentsObj[blogid] === undefined) {
-			commentsArray = [];
-		} else {
-			commentsArray = commentsObj[blogid];
-		}
+			renderComment(username, date, starValue, commentContent.value);
 
-		commentsArray.push(currentComment);
-		commentsObj[blogid] = commentsArray;
-		localStorage.setItem("comments", JSON.stringify(commentsObj));
-		// Store cmt data in localStorage Ends
-		setTimeout(function () {
-			commentContent.value = "";
-			starValue = 0;
-			for (i = 0; i < 5; i++) {
-				starLabel[i].innerHTML = "&#9734;";
+			// Store cmt data in localStorage Starts
+			let currentComment = {
+				username: username,
+				date: date,
+				rating: starValue,
+				content: commentContent.value,
+			};
+
+			let commentsObj;
+			let commentsArray;
+			if (localStorage.getItem("comments") === null) {
+				commentsObj = {};
+			} else {
+				commentsObj = JSON.parse(localStorage.getItem("comments"));
 			}
-		}, 1000);
+
+			if (commentsObj[blogid] === null || commentsObj[blogid] === undefined) {
+				commentsArray = [];
+			} else {
+				commentsArray = commentsObj[blogid];
+			}
+
+			commentsArray.push(currentComment);
+			commentsObj[blogid] = commentsArray;
+			localStorage.setItem("comments", JSON.stringify(commentsObj));
+			// Store cmt data in localStorage Ends
+			setTimeout(function () {
+				commentContent.value = "";
+				starValue = 0;
+				for (i = 0; i < 5; i++) {
+					starLabel[i].innerHTML = "&#9734;";
+				}
+			}, 1000);
+		}
+	} else {
+		alert("Vui lòng đăng nhập để bình luận");
+		window.location.href = "signin.html";
 	}
 });
 
