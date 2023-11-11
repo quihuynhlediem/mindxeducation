@@ -48,13 +48,13 @@ let commentContainer = document.querySelector(".comments-container");
 let submitBtn = document.getElementsByClassName("submit-btn")[0];
 let cancelBtn = document.getElementsByClassName("cancel-btn")[0];
 
-function renderComment(username, date, rating, content) {
+function renderComment(username, userAvatar, date, rating, content) {
 	let userComment = document.createElement("div");
 	userComment.className = "user-comment";
 	userComment.innerHTML = `
 		<div class="comment-header">
 			<div class="comment-user">
-				<img src=${avatarURL}>
+				<img src=${userAvatar}>
 				<div class="cmt-user-date">
 					<span class="comment-username">${username}</span>
 					<span class="comment-date">${date}</span>
@@ -82,57 +82,57 @@ function renderComment(username, date, rating, content) {
 	}
 }
 
-submitBtn.addEventListener("click", function () {
-	if (localStorage.getItem("username") != null) {
-		if (commentContent.value == "") {
-			alert("Please enter your comment!");
-		} else {
-			let username = localStorage.getItem("username");
-			let dt = new Date();
-			let date =
-				dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate();
+// submitBtn.addEventListener("click", function () {
+// 	if (localStorage.getItem("username") != null) {
+// 		if (commentContent.value == "") {
+// 			alert("Please enter your comment!");
+// 		} else {
+// 			let username = localStorage.getItem("username");
+// 			let dt = new Date();
+// 			let date =
+// 				dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate();
 
-			renderComment(username, date, starValue, commentContent.value);
+// 			renderComment(username, date, starValue, commentContent.value);
 
-			// Store cmt data in localStorage Starts
-			let currentComment = {
-				username: username,
-				date: date,
-				rating: starValue,
-				content: commentContent.value,
-			};
+// 			// Store cmt data in localStorage Starts
+// 			let currentComment = {
+// 				username: username,
+// 				date: date,
+// 				rating: starValue,
+// 				content: commentContent.value,
+// 			};
 
-			let commentsObj;
-			let commentsArray;
-			if (localStorage.getItem("comments") === null) {
-				commentsObj = {};
-			} else {
-				commentsObj = JSON.parse(localStorage.getItem("comments"));
-			}
+// 			let commentsObj;
+// 			let commentsArray;
+// 			if (localStorage.getItem("comments") === null) {
+// 				commentsObj = {};
+// 			} else {
+// 				commentsObj = JSON.parse(localStorage.getItem("comments"));
+// 			}
 
-			if (commentsObj[blogid] === null || commentsObj[blogid] === undefined) {
-				commentsArray = [];
-			} else {
-				commentsArray = commentsObj[blogid];
-			}
+// 			if (commentsObj[blogid] === null || commentsObj[blogid] === undefined) {
+// 				commentsArray = [];
+// 			} else {
+// 				commentsArray = commentsObj[blogid];
+// 			}
 
-			commentsArray.push(currentComment);
-			commentsObj[blogid] = commentsArray;
-			localStorage.setItem("comments", JSON.stringify(commentsObj));
-			// Store cmt data in localStorage Ends
-			setTimeout(function () {
-				commentContent.value = "";
-				starValue = 0;
-				for (i = 0; i < 5; i++) {
-					starLabel[i].innerHTML = "&#9734;";
-				}
-			}, 1000);
-		}
-	} else {
-		alert("Vui lòng đăng nhập để bình luận");
-		window.location.href = "signin.html";
-	}
-});
+// 			commentsArray.push(currentComment);
+// 			commentsObj[blogid] = commentsArray;
+// 			localStorage.setItem("comments", JSON.stringify(commentsObj));
+// 			// Store cmt data in localStorage Ends
+// 			setTimeout(function () {
+// 				commentContent.value = "";
+// 				starValue = 0;
+// 				for (i = 0; i < 5; i++) {
+// 					starLabel[i].innerHTML = "&#9734;";
+// 				}
+// 			}, 1000);
+// 		}
+// 	} else {
+// 		alert("Vui lòng đăng nhập để bình luận");
+// 		window.location.href = "signin.html";
+// 	}
+// });
 
 // Render comments from localStorage Starts
 let commentsObject;
@@ -154,6 +154,7 @@ if (commentArray === null || commentArray === undefined) {
 for (let i = 0; i < commentArray.length; i++) {
 	renderComment(
 		commentArray[i].username,
+		commentArray[i].user_avatar,
 		commentArray[i].date,
 		commentArray[i].rating,
 		commentArray[i].content

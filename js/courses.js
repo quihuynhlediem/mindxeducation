@@ -2,7 +2,7 @@
 let coursesArray = localStorage.getItem("courses") ? JSON.parse(localStorage.getItem("courses")) : [];
 
 function addCourse() {
-  if (localStorage.getItem("username" == null)) {
+  if (localStorage.getItem("username") != null) {
     let courseName = this.event.target.parentElement.previousElementSibling.previousElementSibling.innerHTML;
     if (coursesArray.includes(courseName) == false) {
       coursesArray.push(courseName);
