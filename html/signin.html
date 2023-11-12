@@ -81,24 +81,34 @@
                 <a class="nav-link" href="../index.html">Trang chủ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="courses.html">Khoá học</a>
+                <a class="nav-link" href="./courses.html">Khoá học</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blogs</a>
+                <a class="nav-link" href="./blog.html">Blogs</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="contact.html">Liên hệ
+                <a class="nav-link" aria-current="page" href="./contact.html">Liên hệ
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="signin.html">Sign In
+              <li class="nav-item" id="signin-remove-item">
+                <a class="nav-link" aria-current="page" href="./signin.html">Đăng nhập
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="signup.html">Sign Up
+              <li class="nav-item" id="signup-remove-item">
+                <a class="nav-link" aria-current="page" href="./signup.html">Đăng kí
                 </a>
+              </li>
+
+              <li class="nav-item" id="profile_nav_item">
+                <a class="nav-link" aria-current="page" href="./profile.html">Hồ sơ
+                </a>
+              </li>
+
+              <li class="nav-item" id="logout_nav_item">
+                <div class="nav-link" aria-current="page" href="#" >Đăng xuất
+                </div>
               </li>
 
             </ul>
@@ -130,17 +140,17 @@
   <!-- Sign In Starts -->
   <div class="register_body">
     <div id="registerForm">
-      <h1>Sign In</h1>
-      <input type="text" placeholder="Enter your email" id="usernameLogin" />
-      <input type="text" placeholder="Enter your password" id="passwordLogin" />
+      <h1>Đăng nhập</h1>
+      <input type="text" placeholder="Hãy nhập email của bạn" id="usernameLogin" />
+      <input type="password" placeholder="Hãy nhập mật khẩu của bạn" id="passwordLogin" />
       <div class="remember">
         <input type="checkbox" id="remember" />
-        <label for="remember">Remember me</label>
+        <label for="remember">Ghi nhớ thông tin đăng nhập</label>
         <!-- Luu username + pass vao localStorage -->
       </div>
-      <button id="login">Submit</button>
+      <button id="login">Đăng nhập</button>
       <div class="change_tab">
-        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        <p>Chưa có tài khoản? <a href="signup.html">Đăng kí</a></p>
       </div>
     </div>
   </div>
@@ -184,6 +194,7 @@
 
   <script src="https://kit.fontawesome.com/550795c27f.js" crossorigin="anonymous"></script>
   <!-- Footer Ends -->
+  <script src = "../js/remember-me.js"></script>
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";

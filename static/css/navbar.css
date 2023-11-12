@@ -68,7 +68,7 @@
 .nav-item {
 	margin: 0px 5px;
 	float: left;
-	width: 6rem;
+	width: 6.5rem;
 }
 
 #last-nav-item {
@@ -155,9 +155,38 @@
 	margin-right: 0.75rem;
 }
 
+#profile_nav_item{
+	display: none;
+}
+
+#logout_nav_item{
+	display: none;
+}
+
 @media (max-width: 991px) {
+	.title-logo {
+		width: 4rem;
+		margin-left: 5rem;
+	}
+
 	.navbar-toggler {
 		margin-right: 1.6rem;
+	}
+
+	.nav-item{
+		width: 100%;
+	}
+
+	.profile-dropdown img{
+		display: none;
+	}
+
+	#profile_nav_item{
+		display: block;
+	}
+	
+	#logout_nav_item{
+		display: block;
 	}
 }
 
