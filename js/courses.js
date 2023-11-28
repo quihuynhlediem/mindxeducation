@@ -70,6 +70,7 @@ function tabChangeProcess() {
     }
   }
 }
+// Database JSON - lọc bằng hàm render => xử lí được lượng lớn data
 
 tabChangeProcess();
 
